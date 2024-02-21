@@ -2,7 +2,7 @@
  * @Author: wanggang(wanggang220713@credithc.com)
  * @Date: 2023-02-25 14:16:49
  * @LastEditors: wanggang
- * @LastEditTime: 2023-07-14 18:20:02
+ * @LastEditTime: 2024-02-07 14:43:52
  * @Description: 
  */
 
@@ -53,7 +53,7 @@ function merge(nums1,nums2){
   }
   
 }
-//删除有序数组中的重复数字
+//删除有序数组中的重复数字(快慢指针)
 function removeRepeatNum(nums){
   let len = nums.length
   let fast = 1
