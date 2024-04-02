@@ -44,7 +44,12 @@ function delNode(list,n){
   return list
 }
 
-//反转链表
+/**
+ * @Description: 反转链表(双指针)
+ * @param {*} list
+ * @return {*}
+ * @author: wanggang(wanggang220713@credithc.com)
+ */
 function reverseList(list){
   const cur = list
   const pre = null

@@ -2,7 +2,7 @@
  * @Author: wanggang(wanggang220713@credithc.com)
  * @Date: 2023-06-07 18:10:42
  * @LastEditors: wanggang
- * @LastEditTime: 2024-02-18 10:52:57
+ * @LastEditTime: 2024-02-28 10:39:27
  * @Description: 
  */
 /**
@@ -24,11 +24,23 @@ function maxSubArray(arr){
 
 /**
  * @Description: 最长递增子序列
- * 动态规划：dp[i]代表i个元素的最长子序列长度，dp[j]代表j个元素的最长子序列长度其中j<i，那么状态转移方程：dp[i] = max(dp[j]) + 1
+ * 动态规划：dp[i]代表0-i个元素的最长子序列长度，dp[j]代表0-j个元素的最长子序列长度其中j<i，那么状态转移方程：dp[i] = max(dp[j]) + 1
  * @param {*} arr
  * @return {*}
  * @author: wanggang(wanggang220713@credithc.com)
  */
 function maxGrowSubArray(arr){
-  
+  const len = arr.length;
+  let res = 0
+  for(let i = 1; i<len;i++){
+    for(let j = 0;j<i;j++){
+      if(arr[i]>arr[j]){
+        dp[i] = Math.max(arr[i],arr[j]+1)
+      }
+      if(dp[i]>res){
+        result = dp[i]
+      }
+    }
+  }
+  return res
 }

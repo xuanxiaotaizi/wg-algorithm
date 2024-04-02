@@ -2,7 +2,7 @@
  * @Author: wanggang(wanggang220713@credithc.com)
  * @Date: 2023-02-25 14:16:49
  * @LastEditors: wanggang
- * @LastEditTime: 2024-02-07 14:43:52
+ * @LastEditTime: 2024-02-28 11:37:37
  * @Description: 
  */
 
@@ -19,7 +19,14 @@ function twoSum(nums,target){
     diff[nums[i]] = i
   }
 }
-//三数之和双指针
+
+/**
+ * @Description: 三数之和（双指针）
+ * @param {*} nums
+ * @param {*} target
+ * @return {*}
+ * @author: wanggang(wanggang220713@credithc.com)
+ */
 function threeSum(nums,target){
   const arr = nums.sort(()=>a-b)
 
@@ -27,7 +34,32 @@ function threeSum(nums,target){
     
   }
 }
-//合并两个有序数组 双指针
+
+/**
+ * @Description: 删除数组指定元素 双指针（快慢指针）
+ * @param {*} arr
+ * @param {*} index
+ * @return {*}
+ * @author: wanggang(wanggang220713@credithc.com)
+ */
+function removeArrayItem(arr,val){
+  let slow = 0
+  let nums = []
+  for(let fast =0;fast<arr.length;fast++){ 
+    if(val!=arr[fast]){
+      nums[slow++] =arr[fast] 
+    }
+  }
+  return slow
+}
+
+/**
+ * @Description: 合并两个有序数组（双指针）
+ * @param {*} nums1
+ * @param {*} nums2
+ * @return {*}
+ * @author: wanggang(wanggang220713@credithc.com)
+ */
 function merge(nums1,nums2){
   const n = nums2.length
   const m = nums1.length
@@ -72,7 +104,7 @@ function removeRepeatNum(nums){
 function reverseStr(str){
   return str.split('').reverse().join('')
 }
-//给定一个非空字符串 s，最多删除一个字符。判断是否能成为回文字符串。
+//给定一个非空字符串 s，最多删除一个字符。判断是否能成为回文字符串(双指针)。
 function vaildPalindrome(str){
   let i = 0
   let j = str.length - 1
@@ -99,5 +131,3 @@ function vaildPalindrome(str){
 
   return false
 }
-
-//两个数组的交集
