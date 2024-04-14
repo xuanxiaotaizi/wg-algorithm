@@ -14,3 +14,28 @@ function lis(arr){
     }
   }
 }
+
+//LRU算法
+//1、缓存提升
+//2、超出限额判断
+class LRU {
+  constructor(limit =  10){
+    this.map = new Map();
+    this.limit = limit;
+  }
+  get(key){
+    if(this.map.has(key)){
+      const temp = this.map.get(key)
+      this.map.delete(key)
+      this.map.set(key,temp)
+    }
+  }
+  put(key,value){
+    if(this.map.has(key)){
+      this.map.delete(key)
+    }else if(this.map.size > this.limit){
+      this.map.delete(this.map.keys().next().value)
+    }
+    this.map.set(key,value)
+  }
+}
