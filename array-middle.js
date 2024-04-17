@@ -1,4 +1,3 @@
-//三数之和
 /**
  * @Description: 删除有序数组中的重复数字(快慢指针)
  * @param {*} nums
@@ -11,7 +10,7 @@ function removeRepeatNum(nums){
   let slow = 0
   let array = [nums[0]]
   while(fast < len){
-    if(nums[fast] != nums[nums[slow]]){
+    if(nums[fast] != nums[slow]){
       slow ++ 
       array.push(nums[fast])
     }
