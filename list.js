@@ -1,11 +1,13 @@
-/*
- * @Author: wanggang(wanggang220713@credithc.com)
- * @Date: 2023-06-07 18:09:59
+
+/**
+ * @Author: wanggang220713@credithc.com
+ * @Date: 2024-04-17 16:27:31
  * @LastEditors: wanggang
- * @LastEditTime: 2023-06-25 11:19:02
- * @Description: 
+ * @description: 合并两个有序链表 穿针引线法，cur就是那根针
+ * @param {*} list1
+ * @param {*} list2
+ * @return {*}
  */
-//合并两个有序链表
 function mergeList(list1,list2){
   let cur = new NodeList()
   while(list1.next && list2.next){

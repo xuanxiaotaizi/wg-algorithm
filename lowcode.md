@@ -1,8 +1,8 @@
 <!--
  * @Author: wanggang(wanggang220713@credithc.com)
  * @Date: 2024-04-07 08:51:39
- * @LastEditors: wanggang
- * @LastEditTime: 2024-04-12 17:52:45
+ * @LastEditors: wanggang wanggang220713@credithc.com
+ * @LastEditTime: 2024-04-17 16:16:14
  * @Description: 
 -->
 
@@ -14,15 +14,11 @@
  再说C端，对于营销活动这种类型玩的就是创意设计和业务类型，而且c端用户的特点就是获客成本高，付费意识低下
 
  那么我们的低代码产品就得：
- 站在产品角度
- 1、pro code要简洁直接，可二次开发
- 2、限制产品的业务边缘，减少接入、使用学习成本
- 3、拥有一定自我造血能力
- 
- 站在研发角度
  1、无缝对接现有的后端接口
  2、业务复用能力、组件使用以及接入门槛
  3、减少对前端现有业务侵入，提供pro code和lesscode模式
+ 4、拥有自我造血的能力
+ 5、pro code 可二次开发
 
  # 设计
  基本和传统的可视化设计一致，采用分层设计

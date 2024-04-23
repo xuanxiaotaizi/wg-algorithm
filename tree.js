@@ -1,18 +1,18 @@
 /*
  * @Author: wanggang(wanggang220713@credithc.com)
  * @Date: 2023-06-07 18:10:10
- * @LastEditors: wanggang
- * @LastEditTime: 2023-07-03 09:11:33
+ * @LastEditors: wanggang wanggang220713@credithc.com
+ * @LastEditTime: 2024-04-23 17:33:44
  * @Description: 
  */
-//二叉树的最大深度
+//二叉树的最大深度(递归)
 function maxDeepth(root){
   if(!root.left && !root.right){
     return 1
   }
   return Math.max(maxDeepth(root.left),maxDeepth(root.right)) + 1
 }
-//反转二叉树
+//反转二叉树(递归)
 function reverseTree(root){
   if(!root){
     return
@@ -27,7 +27,13 @@ function reverseTree(root){
 
 //合并二叉树
 //二叉树转换为链表
-
+//二叉树的前序遍历
+function preOrder(root){
+  if(!root){
+    return []
+  }
+  return [root.value,...preOrder(root.left),...preOrder(root.right)]
+}
 
 //二叉树的层序遍历
 function bfs(root){
