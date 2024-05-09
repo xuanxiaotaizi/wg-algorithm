@@ -12,6 +12,13 @@
 // 回文链表
 
 // 合并两个有序链表(链表排序)
+function mergeList(l1,l2){
+    const dummy = new ListNode(-1)
+    let current = dummy
+    while(l1 && l2){
+        
+    }
+}
 
 // 合并 K 个升序链表(链表排序)
 

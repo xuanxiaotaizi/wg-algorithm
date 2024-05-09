@@ -40,6 +40,19 @@ function zeroMove(nums){
 	}
 }
 
+function moveZerosToEnd(nums){
+  let pos = 0
+  for(let i = 0; i < nums.length; i++){
+    if(nums[i]!=0){
+      nums[pos++] = nums[i]
+    }
+  }
+
+  for(let i = pos;i<nums.length;i++){
+    nums[i] = 0
+  }
+}
+
 // 合并两个有序数组（双指针 从后往前）
 function mergeNums(nums1, nums2) {
   let n = nums1.length - 1;
@@ -66,11 +79,45 @@ function addStrings(str1,str2){
 
 	while(i > 0  ||  j > 0 || carry>0){
 		let sum = carry
-		if(i>=0) sum += str1.charAt(i) - '0'
-		if(j>=0) sum += str2.charAt(j) - '0'
+		if(i>=0) {
+      sum += parseInt(str1.charAt(i))
+      i--
+    }
+		if(j>=0){
+      sum += parseInt(str2.charAt(j))
+      j--
+    }
 
 		result.unshift(sum%10) //存个位
 		carry = Math.floor(sum/10) //计算进位
 	}
 	return result.join("")
+}
+
+// 接雨水（对撞指针）
+function trap(arr){
+  let left = 0
+  let right = arr.length - 1
+  let leftMax = 0
+  let rightMax = 0
+  let result = 0
+  while(left < right){
+    if(arr[left] < arr[right]){
+      if(arr[left] > leftMax){
+        leftMax = arr[left]
+      }else{
+        result += leftMax - arr[left]
+      }
+
+      left++
+    }else{
+      if(arr[right] > rightMax){
+        rightMax = arr[right]
+      }else{
+        result += rightMax - arr[right]
+      }
+
+      right--
+    }
+  }
 }

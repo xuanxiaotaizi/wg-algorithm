@@ -2,9 +2,16 @@
  * @Author: wanggang(wanggang220713@credithc.com)
  * @Date: 2024-04-07 08:51:39
  * @LastEditors: wanggang wanggang220713@credithc.com
- * @LastEditTime: 2024-04-17 16:16:14
+ * @LastEditTime: 2024-05-07 18:27:35
  * @Description: 
 -->
+# 什么是低代码
+首先低代码的出现一定是快速，简单的解决某一领域的问题
+
+# 商业价值
+效率：快速搭建项目，并可以定制化配置，降低企业试错成本和竞争效率
+成本：从人力、机器资源削减成本
+安全：规范的流程保证线上稳定
 
 # 市面低代码产品现状
  大部分都是运营、建站类型，缺点：
@@ -26,24 +33,29 @@
  第一层：协议层scheme,DSL
  第二层：编译器层，根据底层协议填充物料，组件编排#，画布渲染
  第三层：编译器扩展，比如资源管理管理素材，组件管理远程组件，页面管理的发布和保存
- 第四层：就是可移植到各个平台搭建服务
+ 第四层：最顶层就是聚合前面几层组合的搭建平台，由于是分层设计的原因，可以在多个不同的项目中来扩展使用搭建服务
 
 # 设计器渲染方案
 
 canvas vs dom
+canvas的优势:图形渲染能力比较强，dom的优势，可以调用浏览器完备的事件系统api，结合现状评估
 选择dom渲染方案
 
 # scheme设计
+版本version 
+  semver
+    major
+    minor
+    patch
 
-版本version
 依赖管理(library)
 状态管理(store)
 数据源(dataSource)
-生命周期(lifeCycles)
+<!-- 生命周期(lifeCycles) -->
 页面结构(htmlBody)
+  为后续运行时渲染和动态出码垫定基础
 
 # 组件与物料设计
-
 基础物料
 业务物料
 定制化物料
@@ -53,10 +65,21 @@ canvas vs dom
 1、私有物料，npm的方式开发迭代
 2、公共物料，托管在物料中心，借助我们内部的cicd高效迭代物料，并提供出npm和cdn资源，这样即可用于低代码平台，也可单独使用，利益最大化
 
+# 服务端设计
+
+1、auth & user：RBAC权限管理 角色、权限、用户
+2、物料服务：虚拟物料和实体物料分别对应monorepo 和 multirepo
+3、devops：通用的devops流程基本上是流程管理、持续构建、持续部署
+   gitflow：master,develop,feature.release,hotfix,我们通过服务端来控制git流
+   不依赖jenkins，自己开发任务队列@nestjs/bull
+4、space：
+  链接devops服务，进行不同产物的构建
+  搭建产物管理，上下架，版本等
+
 # 拖拽引擎
 从0-1实现一个完整的拖拽链路不现实，采用craft.js，为了让物料和craft完全解耦，创建物料会单独提供，一个高阶组件和挂载物料属性方法
 编译器要利用iframe的隔离能力，来兼容部分特殊单位在画布中的显示，如 vw、vh 等长度的单位的兼容
-采用createPortal挂载，以及react-frame-component，以及微前端的影子环境（避免引用工程中样式，导致样式丢失）
+采用ReactDOM.createPortal挂载，以及react-frame-component，以及微前端的影子环境（避免引用工程中样式，导致样式丢失）
 
 # 编译器逻辑全流程
 创建物料：开发一个react组件，包含面板属性以及描述的配置，以及craftjs的封装，可生成纯净版和平台版

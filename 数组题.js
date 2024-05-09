@@ -1,3 +1,11 @@
+/*
+ * @Author: wanggang wanggang220713@credithc.com
+ * @Date: 2024-04-29 09:08:49
+ * @LastEditors: wanggang wanggang220713@credithc.com
+ * @LastEditTime: 2024-05-08 17:44:28
+ * @FilePath: \work\wg-algorithm\数组题.js
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 //轮转数组 将数组中的元素向右移动k步
 function rotate(nums, k) {
   const arr = new Array(k);
@@ -44,7 +52,17 @@ function spiralOrder(matrix) {
   }
 }
 
-//旋转图像(二维矩阵旋转90度)
+//旋转图像(二维矩阵旋转90度) (n*n)
 function roteta(matrix){
-	
+	//对角线互换
+  const n = matrix.length
+  for(let i = 0;i<n;i++){
+    for(let j = i;j<n;j++){
+      [matrix[i][j],matrix[j][i]] = [matrix[j][i],matrix[i][j]]
+    }
+  }
+
+  for(let i = 0;i<n;i++){
+    matrix[i].reverse()
+  }
 }
