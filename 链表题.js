@@ -16,8 +16,17 @@ function mergeList(l1,l2){
     const dummy = new ListNode(-1)
     let current = dummy
     while(l1 && l2){
-        
+        if(l1.val > l2.val){
+            current.next = l2
+            l2 = l2.next
+        }
+        if(l1.val < l2.val){
+            current.next = l1
+            l1 = l1.next
+        }
     }
+    current.next = l1?l1:l2
+    return dummy.next
 }
 
 // 合并 K 个升序链表(链表排序)
